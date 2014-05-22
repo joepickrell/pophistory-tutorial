@@ -26,31 +26,31 @@ ls
 ```
 
 
-\noindent In this directory is a single file in TreeMix format, \texttt{example1.treemix.gz}. Look at the first few lines of this file:
-\\
-\\
-\texttt{zcat example1.treemix.gz $|$ head}
-\\
-\\
-\noindent The first line contains the names of five human populations: French, Sardinian, Karitiana (a Native American population), Yoruba (Nigeria), and Han (China). The remainder of the lines contain SNP data: each entry is of the form [count1],[count2], where the counts are the numbers of observed reference and alternative alleles in a set of genotyped individuals from the population. A bioinformatics question:
+In this directory is a single file in TreeMix format, `example1.treemix.gz`. Look at the first few lines of this file:
 
-\begin{enumerate}
-\item Using the command line, count the number of SNPs included in this file. Hint: if you're not familiar with the unix command \texttt{wc}, run:
-\\
-\\
-\texttt{man wc}
-\end{enumerate}
+```
+zcat example1.treemix.gz | head
+```
 
-\noindent Now run four-population tests on all five possible combinations of populations. To do this, use the \texttt{fourpop} command from the TreeMix package. First get the help page by running:
-\\
-\\
-\texttt{fourpop}\\
-\\
-\noindent You should see that you need to give the program an input file as well as a setting for the numbers of SNPs to use in the block jackknife. This parameter ensures that LD structure does not lead to ``double-counting" of SNPs. In these data, a setting of \texttt{k} of about 500 should be sufficient. Now run \texttt{fourpop}:
-\\
-\\
-\texttt{fourpop -i example1.treemix.gz -k 500}\\
-\\
+The first line contains the names of five human populations: French, Sardinian, Karitiana (a Native American population), Yoruba (Nigeria), and Han (China). The remainder of the lines contain SNP data: each entry is of the form [count1],[count2], where the counts are the numbers of observed reference and alternative alleles in a set of genotyped individuals from the population. A bioinformatics question:
+
+
+* Using the command line, count the number of SNPs included in this file. Hint: if you're not familiar with the unix command `wc`, run:
+```
+man wc
+```
+
+Now run four-population tests on all five possible combinations of populations. To do this, use the `fourpop` command from the TreeMix package. First get the help page by running:
+
+```
+fourpop
+```
+
+You should see that you need to give the program an input file as well as a setting for the numbers of SNPs to use in the block jackknife. This parameter ensures that LD structure does not lead to ``double-counting" of SNPs. In these data, a setting of \texttt{k} of about 500 should be sufficient. Now run `fourpop`:
+
+```
+fourpop -i example1.treemix.gz -k 500
+```
 \noindent The program will print to the screen all possible four-population trees in the data in the format:
 \\
 \\
