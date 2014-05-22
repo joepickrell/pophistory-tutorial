@@ -5,7 +5,7 @@
 
 The goal of this tutorial is to expose you to some of the important tools for learning about history from genetics. The standard setup for someone interested in these problems is to genotype thousands or millions of SNPs in a population of interest and then ask: what is the history of this population? The tools you will run in this tutorial provide summaries of the data that are informative about this question. However, be aware that there is no "black box" solution--all methods can be misleading, and the main difficulty is not running software, but instead interpreting the results.
 
-There are two example datasets in this tutorial, both taken from human population genetics. The first example is designed to show how even simple analyses can have complex interpretations, and the second is designed to give you some exposure to several of the main analysis tools used in papers about population history.
+There are two example datasets in this tutorial, both taken from human population genetics (the data in the first example is from [Li et al.](http://www.sciencemag.org/content/319/5866/1100.abstract) and the data in the second example is from [the 1000 Genomes Project](http://www.1000genomes.org/)). The first example is designed to show how even simple analyses can have complex interpretations, and the second is designed to give you some exposure to several of the main analysis tools used in papers about population history.
 
 # Preliminaries
 
