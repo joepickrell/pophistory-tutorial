@@ -11,11 +11,11 @@ There are two example datasets in this tutorial, both taken from human populatio
 
 We assume you are comfortable working from the command line and have installed:
 
-* `smartpca` (in the [EIGENSOFT package](http://www.hsph.harvard.edu/alkes-price/software/))
+* smartpca (in the [EIGENSOFT package](http://www.hsph.harvard.edu/alkes-price/software/))
 
-* treemix
+* (https://code.google.com/p/treemix/)[treemix] (including threepop and fourpop)
 
-* STRUCTURE
+* (http://pritchardlab.stanford.edu/structure.html)[STRUCTURE]
  
 # Example 1
 There are two directories in this tutorial, `example1/` and `example2/`. We're going to start with example 1
