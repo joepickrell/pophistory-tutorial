@@ -3,16 +3,19 @@
 
 #Introduction
 
-The goal of this tutorial is to expose you to some of the important tools for learning about history from genetics. The standard setup for someone interested in these problems is to genotype thousands or millions of SNPs in a population of interest and then ask: what is the history of this population? The tools you will run in this tutorial provide summaries of the data that are informative about this question. However, be aware that there is no ``black box" solution--all methods can be misleading, and the main difficulty is not running software, but instead interpreting the results.
+The goal of this tutorial is to expose you to some of the important tools for learning about history from genetics. The standard setup for someone interested in these problems is to genotype thousands or millions of SNPs in a population of interest and then ask: what is the history of this population? The tools you will run in this tutorial provide summaries of the data that are informative about this question. However, be aware that there is no "black box" solution--all methods can be misleading, and the main difficulty is not running software, but instead interpreting the results.
 
 There are two example datasets in this tutorial, both taken from human population genetics. The first example is designed to show how even simple analyses can have complex interpretations, and the second is designed to give you some exposure to several of the main analysis tools used in papers about population history.
 
 # Preliminaries
 
 We assume you are comfortable working from the command line and have installed:
-*`smartpca` (in the [EIGENSOFT package](http://www.hsph.harvard.edu/alkes-price/software/))
-*treemix
-*STRUCTURE
+
+* `smartpca` (in the [EIGENSOFT package](http://www.hsph.harvard.edu/alkes-price/software/))
+
+* treemix
+
+* STRUCTURE
  
 # Example 1
 There are two directories in this tutorial, `example1/` and `example2/`. We're going to start with example 1
