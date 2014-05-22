@@ -176,28 +176,25 @@ It's also useful to have a measure of how well this tree fits the data. To plot 
 ```
 >plot_resid("TreeMix", "pop_order")
 ```
-\noindent Each entry in the displayed matrix shows how well the model accounts for the observed relationship between the pair of populations. Questions:
-\begin{enumerate}
-\item How do you interpret the tree and residual plot?
-\end{enumerate}
 
-\noindent TreeMix can also add migration to a tree. To tell TreeMix the number of migration events to add, use the \texttt{-m} flag:
-\\
-\\
-\texttt{treemix -i example2.treemix.gz -k 500 -root YRI -m 1}
-\\
-\\
-\noindent Questions:
-\begin{enumerate}
-\item Plot the graph and residuals using the same commands as before. How do you interpret them?
-\item Run TreeMix with different parameter settings (of \texttt{-root}, \texttt{-k}, and \texttt{-m}. How robust are your results to these choices?
-\end{enumerate}
+Each entry in the displayed matrix shows how well the model accounts for the observed relationship between the pair of populations. Questions:
+* How do you interpret the tree and residual plot?
 
-\subsection{Three- and four-population tests}
-As in the first example, you can also calculate $f_3$ and $f_4$ statistics on the file in TreeMix format. Questions:
+TreeMix can also add migration to a tree. To tell TreeMix the number of migration events to add, use the `-m` flag:
 
-\begin{enumerate}
-\item How do you interpret the $f$-statistics?
-\item Putting everything together, what is a historical scenario for these populations that is consistent with the STRUCTURE, PCA, TreeMix, and $f$-statistic results?
-\end{enumerate}
+```
+treemix -i example2.treemix.gz -k 500 -root YRI -m 1
+```
+
+Questions:
+* Plot the graph and residuals using the same commands as before. How do you interpret them?
+
+* Run TreeMix with different parameter settings (of `-root`, `-k`, and `-m`. How robust are your results to these choices?
+
+###Three- and four-population tests
+As in the first example, you can also calculate *f_3* and *f_4* statistics on the file in TreeMix format. Questions:
+
+
+* How do you interpret the *f*-statistics?
+* Putting everything together, what is a historical scenario for these populations that is consistent with the STRUCTURE, PCA, TreeMix, and *f*-statistic results?
 
