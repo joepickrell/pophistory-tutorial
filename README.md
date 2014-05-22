@@ -46,44 +46,44 @@ Now run four-population tests on all five possible combinations of populations. 
 fourpop
 ```
 
-You should see that you need to give the program an input file as well as a setting for the numbers of SNPs to use in the block jackknife. This parameter ensures that LD structure does not lead to ``double-counting" of SNPs. In these data, a setting of \texttt{k} of about 500 should be sufficient. Now run `fourpop`:
+You should see that you need to give the program an input file as well as a setting for the numbers of SNPs to use in the block jackknife. This parameter ensures that LD structure does not lead to "double-counting" of SNPs. In these data, a setting of k of about 500 should be sufficient. Now run `fourpop`:
 
 ```
 fourpop -i example1.treemix.gz -k 500
 ```
-\noindent The program will print to the screen all possible four-population trees in the data in the format:
-\\
-\\
-\noindent [tested tree] [$f_4$ statistic] [standard error] [Z-score]
-\\
-\\
-\noindent In the tested tree, the format is A,B;C,D, such that the computed $f_4$ statistic is (A-B)(C-D). Recall that a Z-score with an absolute value of 3 or greater corresponds to a P-value of 0.001. Questions:
 
-\begin{enumerate}
-\item What is the best tree for the populations: Yoruba, Han, French, Karitiana?
-\item Does this tree fit the data? If not, how do you interpret the result?
-\end{enumerate}
+The program will print to the screen all possible four-population trees in the data in the format:
 
-\noindent Another piece of information that might be useful for interpreting these data comes from $f_3$ statistics. These can be computed using the program \texttt{threepop}:
-\\
-\\
-\texttt{threepop -i example1.treemix.gz -k 500}
-\\
-\\
-\noindent Now the output is of the form:
-\\
-\\
-\noindent [tested tree][$f_3$ statistic][standard error][Z-score]
-\\
-\\
-\noindent In the tested tree, the format is A;B,C, such that the computed $f_3$ statistic is (A-B)(A-C). Recall that for $f_3$ statistics, only significantly \emph{negative} statistics are informative. Questions:
-\begin{enumerate}
-\item Are there any significantly negative $f_3$ statistics in these data? 
-\item How do you interpret the combination of these $f_3$ and $f_4$ statistics?
-\end{enumerate}
+```
+[tested tree] [*f_4* statistic] [standard error] [Z-score]
+```
+
+In the tested tree, the format is A,B;C,D, such that the computed *f_4* statistic is (A-B)(C-D). Recall that a Z-score with an absolute value of 3 or greater corresponds to a P-value of 0.001. Questions:
+
+* What is the best tree for the populations: Yoruba, Han, French, Karitiana?
+* Does this tree fit the data? If not, how do you interpret the result?
+
+Another piece of information that might be useful for interpreting these data comes from *f_3* statistics. These can be computed using the program `threepop`:
+
+```
+threepop -i example1.treemix.gz -k 500
+```
+
+Now the output is of the form:
+
+```
+[tested tree][*f_3* statistic][standard error][Z-score]
+```
+
+In the tested tree, the format is A;B,C, such that the computed *f_3* statistic is (A-B)(A-C). Recall that for *f_3* statistics, only significantly *negative* statistics are informative. Questions:
 
 
-\section{Example 2}
+* Are there any significantly negative *f_3* statistics in these data? 
+
+* How do you interpret the combination of these *f_3* and *f_4* statistics?
+
+
+#Example 2
 Now let's go to the second example:
 \\
 \\
