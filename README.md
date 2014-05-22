@@ -121,9 +121,9 @@ In the files `example2.eigenstratgene`, `example2.snp`, and `example2.ind` are 1
 
 ``` 
 R
->read.table("example2.ind", as.is = T)}
->?table}
->q() #[to return to the command line]
+>read.table("example2.ind", as.is = T)
+>?table
+>q() #to return to the command line
 ```
 
 Now return to the command line and open the file `par.example2`. This is the parameter file for `smartpca`. To tell the program to use these parameters, run:
