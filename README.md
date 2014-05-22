@@ -13,9 +13,9 @@ We assume you are comfortable working from the command line and have installed:
 
 * smartpca (in the [EIGENSOFT package](http://www.hsph.harvard.edu/alkes-price/software/))
 
-* (https://code.google.com/p/treemix/)[treemix] (including threepop and fourpop)
+* [treemix](https://code.google.com/p/treemix/) (including threepop and fourpop)
 
-* (http://pritchardlab.stanford.edu/structure.html)[STRUCTURE]
+* [STRUCTURE](http://pritchardlab.stanford.edu/structure.html)(we are going to assume you have the GUI)
  
 # Example 1
 There are two directories in this tutorial, `example1/` and `example2/`. We're going to start with example 1
