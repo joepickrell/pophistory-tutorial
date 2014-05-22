@@ -1,0 +1,9 @@
+genotypename:    example2.eigenstratgeno
+snpname:         example2.snp
+indivname:       example2.ind
+evecoutname:     example2.evec
+evaloutname:     example2.eval
+altnormstyle:    NO 
+numoutevec:      10
+familynames:     NO
+numoutlieriter:  0
