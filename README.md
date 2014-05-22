@@ -1,5 +1,5 @@
 #Tutorial on inferring history from genetics
-## Joe Pickrell
+#### Joe Pickrell
 
 #Introduction
 
