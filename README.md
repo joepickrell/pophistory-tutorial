@@ -101,7 +101,7 @@ The file format is simple an ordered list of the counts of the alleles of SNPs i
 We now want to understand the relationships between the five populations in these data. The goal here is to see how different approaches to looking at the data tell us similar or different things about history.
 
 ###STRUCTURE
-In the file `example2.struct_in` is the input file for the program `STRUCTURE`. It contains 75 individuals from the five populations genotyped at 3,000 SNPs. In this file, populations have numbers instead of names: CEU is population 1, CHB is population 2, GIH is population 3, MKK is population 4, and YRI is population 5. Start the STRUCTURE GUI (this will depend on your system):
+In the file `example2.struct_in` is the input file for the program `STRUCTURE`. It contains 75 individuals from the five populations genotyped at 3,000 SNPs. In this file, populations have numbers instead of names: CEU is population 1, CHB is population 2, GIH is population 3, MKK is population 4, and YRI is population 5. Start the STRUCTURE GUI (how to do this will depend on your system).
 
 In the File menu, select "New project" and follow the instructions. Most of the steps involve telling the program the format of the file: check the boxes to tell the program that there is a "row of marker names" and "map distances between loci", and that the file is in the "special format". Then check the boxes for "Individual ID for each individual" and "Putative population origin for each individual". The data is not phased.
 
