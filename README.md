@@ -55,7 +55,7 @@ fourpop -i example1.treemix.gz -k 500
 The program will print to the screen all possible four-population trees in the data in the format:
 
 ```
-[tested tree] [*f_4* statistic] [standard error] [Z-score]
+[tested tree] [f_4 statistic] [standard error] [Z-score]
 ```
 
 In the tested tree, the format is A,B;C,D, such that the computed *f_4* statistic is (A-B)(C-D). Recall that a Z-score with an absolute value of 3 or greater corresponds to a P-value of 0.001. Questions:
@@ -72,7 +72,7 @@ threepop -i example1.treemix.gz -k 500
 Now the output is of the form:
 
 ```
-[tested tree][*f_3* statistic][standard error][Z-score]
+[tested tree][f_3 statistic][standard error][Z-score]
 ```
 
 In the tested tree, the format is A;B,C, such that the computed *f_3* statistic is (A-B)(A-C). Recall that for *f_3* statistics, only significantly *negative* statistics are informative. Questions:
@@ -85,105 +85,97 @@ In the tested tree, the format is A;B,C, such that the computed *f_3* statistic 
 
 #Example 2
 Now let's go to the second example:
-\\
-\\
-\texttt{cd $\sim$/ACAD/Wed\_Pickrell/example2/}
-\\
-\texttt{ls}
-\\
-\\
-\noindent In this directory is data from five human populations in three different formats. The five populations are a northern European population (population code: CEU), Chinese (CHB), Yoruba from Nigeria (YRI), Maasai from Kenya (MKK), and Gujarati from India (GIH). First is STRUCTURE format: \texttt{example2.struct\_in}. Then is EIGENSTRAT format: \texttt{example2.eigenstratgeno}, \texttt{example2.snp}, and \texttt{example2.ind}. Finally is TreeMix format: \texttt{example2.treemix.gz}. Take some time to look over the file formats. For example, look at the format for TreeMix:
-\\
-\\
-\texttt{zcat example2.treemix.gz $|$ head}
-\\
-\\
-\noindent The file format is simple an ordered list of the counts of the alleles of SNPs in five populations, with the population codes listed in the header. In the other file formats are the genotypes for the individuals at different sets of SNPs.
+
+```
+cd ../example2/
+ls
+```
+In this directory is data from five human populations in three different formats. The five populations are a northern European population (population code: CEU), Chinese (CHB), Yoruba from Nigeria (YRI), Maasai from Kenya (MKK), and Gujarati from India (GIH). First is STRUCTURE format: `example2.struct_in`. Then is EIGENSTRAT format: `example2.eigenstratgeno`, `example2.snp`, and `example2.ind`. Finally is TreeMix format: `example2.treemix.gz`. Take some time to look over the file formats. For example, look at the format for TreeMix:
+
+```
+zcat example2.treemix.gz | head
+```
+
+The file format is simple an ordered list of the counts of the alleles of SNPs in five populations, with the population codes listed in the header. In the other file formats are the genotypes for the individuals at different sets of SNPs.
  
 We now want to understand the relationships between the five populations in these data. The goal here is to see how different approaches to looking at the data tell us similar or different things about history.
-\subsection{STRUCTURE}
-In the file \texttt{example2.struct\_in} is the input file for the program \texttt{STRUCTURE}. It contains 75 individuals from the five populations genotyped at 3,000 SNPs. In this file, populations have numbers instead of names: CEU is population 1, CHB is population 2, GIH is population 3, MKK is population 4, and YRI is population 5. Start STRUCTURE by moving into its directory and starting the GUI:
-\\
-\\
-\texttt{cd $\sim$/frontend/}\\
-\texttt{./structure}
-\\
-\\
-\noindent In the File menu, select ``New project" and follow the instructions. Most of the steps involve telling the program the format of the file: check the boxes to tell the program that there is a ``row of marker names" and ``map distances between loci", and that the file is in the ``special format". Then check the boxes for ``Individual ID for each individual" and ``Putative population origin for each individual". The data is not phased.
 
-After the file has loaded, go to the ``Parameter set" menu and select ``New". Parameter estimation is done by MCMC, so the program needs to know how long to run and how many iterations to discard. For our purposes here, set the burn-in to 1,000 iterations, at a few thousand additional iterations should be enough to get an idea of how the data look. 
+###STRUCTURE
+In the file `example2.struct_in` is the input file for the program `STRUCTURE`. It contains 75 individuals from the five populations genotyped at 3,000 SNPs. In this file, populations have numbers instead of names: CEU is population 1, CHB is population 2, GIH is population 3, MKK is population 4, and YRI is population 5. Start the STRUCTURE GUI (this will depend on your system):
 
-After creating the parameter set, return to the ``Parameter set" menu and select ``Run". The program will ask the number of populations--enter 2 to begin. After the run has completed, click on the results file and play with the different visualization methods. Questions:
+In the File menu, select "New project" and follow the instructions. Most of the steps involve telling the program the format of the file: check the boxes to tell the program that there is a "row of marker names" and "map distances between loci", and that the file is in the "special format". Then check the boxes for "Individual ID for each individual" and "Putative population origin for each individual". The data is not phased.
 
-\begin{enumerate}
-\item Run STRUCTURE with different settings for the number of populations, how do the results change?
-\item How do you interpret these results?
-\end{enumerate}
-\subsection{PCA}
-In the files \texttt{example2.eigenstratgene}, \texttt{example2.snp}, and \texttt{example2.ind} are 116,565 SNPs genotypes from 675 individuals from the five populations. A quick bioinformatics question:
+After the file has loaded, go to the "Parameter set" menu and select "New". Parameter estimation is done by MCMC, so the program needs to know how long to run and how many iterations to discard. For our purposes here, set the burn-in to 1,000 iterations, and a few thousand additional iterations should be enough to get an idea of how the data look. 
 
-\begin{enumerate}
-\item Using R, count the number of individuals per population. Hint: in R, look at the \texttt{table} function by running:
-\\
-\\ 
-\texttt{R}\\
-\texttt{>read.table("example2.ind", as.is = T)}\\
-\texttt{>?table}\\
-\texttt{>q() }[to return to the command line]\\
-\end{enumerate}
+After creating the parameter set, return to the "Parameter set" menu and select "Run". The program will ask the number of populations--enter 2 to begin. After the run has completed, click on the results file and play with the different visualization methods. Questions:
 
-\noindent Now return to the command line and open the file \texttt{par.example2}. This is the parameter file for \texttt{smartpca}. To tell the program to use these parameters, run:
-\\
-\\
-\texttt{smartpca -p par.example2}
-\\
-\\
-\noindent The program will output the positions of each individual on the major axes of variation in the sample into \texttt{example.evec}. This file allows for visualization of the population structure in the sample. The best way to visualize the output is using R:
-\\
-\\
-\texttt{R}\\
-\texttt{>d = read.table("example.evec", as.is = T)}\\
-\texttt{>plot(d[,2], d[,3], xlab = "PC1", ylab = "PC2")}\\
-\\
-\noindent In these plots, each individual is a point. It would be nice to color each individual according to their population of origin. Luckily this information is in the seventh column of the output file. To color the Yoruba (YRI) population in blue, continue in R:
-\\
-\\
-\texttt{>tmp = d[d[,7] == "YRI",]}\\
-\texttt{>points(tmp[,2], tmp[,3], col = "blue", pch = 20)}\\
-\\
-\\
-\noindent Questions:
-\begin{enumerate}
-\item Produce a PCA plot with all five populations plotted in different colors. Do this for PC1 versus PC2, as well as PC2 versus PC3. 
-\item How do you interpret this plot?
-\end{enumerate}
 
-\subsection{TreeMix}
-TreeMix is a program for building trees and graphs of populations. The input file is in \texttt{example2.treemix.gz}. Again examine the input file:
-\\
-\\
-\texttt{zcat example2.treemix.gz $|$ head}
-\\
-\\
-\noindent To run TreeMix, as for three- and four-population test, you need to set a window size. Again we'll set it at 500. It's also often useful to set an outgroup using the \texttt{-root} flag:
-\\
-\\
-\texttt{treemix -i example2.treemix.gz -k 500 -root YRI}
-\\
-\\
-\noindent TreeMix will now output a number of files with the stem TreeMix.*. The tree can be plotted in R:
-\\
-\\
-\texttt{R}\\
-\texttt{>source("plotting\_funcs.R")}\\
-\texttt{>plot\_tree("TreeMix")}\\
-\\
-\\
-\noindent It's also useful to have a measure of how well this tree fits the data. To plot the residual fit of the model, while still in R (and having loaded the functions in \texttt{plotting\_funcs.R}, run:
-\\
-\\
-\texttt{>plot\_resid("TreeMix", "pop\_order")}\\
-\\
+* Run STRUCTURE with different settings for the number of populations, how do the results change?
+* How do you interpret these results?
+
+###PCA
+In the files `example2.eigenstratgene`, `example2.snp`, and `example2.ind` are 100,000 SNPs genotypes from 150 individuals from the five populations. A quick bioinformatics question:
+
+
+* Using R, count the number of individuals per population. Hint: in R, look at the `table` function by running:
+
+``` 
+R
+>read.table("example2.ind", as.is = T)}
+>?table}
+>q() #[to return to the command line]
+```
+
+Now return to the command line and open the file `par.example2`. This is the parameter file for `smartpca`. To tell the program to use these parameters, run:
+
+```
+smartpca -p par.example2
+```
+
+The program will output the positions of each individual on the major axes of variation in the sample into `example2.evec`. This file allows for visualization of the population structure in the sample. The best way to visualize the output is using R:
+
+```
+R
+>d = read.table("example2.evec", as.is = T)
+>plot(d[,2], d[,3], xlab = "PC1", ylab = "PC2")
+```
+
+In these plots, each individual is a point. It would be nice to color each individual according to their population of origin. Luckily this information is in the 11th column of the output file. To color the Yoruba (YRI) population in blue, continue in R:
+
+```
+>tmp = d[d[,11] == "YRI",]
+>points(tmp[,2], tmp[,3], col = "blue", pch = 20)
+```
+
+Questions:
+* Produce a PCA plot with all five populations plotted in different colors. Do this for PC1 versus PC2, as well as PC2 versus PC3. 
+* How do you interpret this plot?
+
+###TreeMix
+TreeMix is a program for building trees and graphs of populations. The input file is in `example2.treemix.gz`. Again examine the input file:
+```
+zcat example2.treemix.gz | head
+```
+
+To run TreeMix, as for three- and four-population test, you need to set a window size. Again we'll set it at 500. It's also often useful to set an outgroup using the `-root` flag:
+
+```
+treemix -i example2.treemix.gz -k 500 -root YRI
+```
+
+TreeMix will now output a number of files with the stem TreeMix.*. The tree can be plotted in R:
+
+```
+R
+>source("plotting\_funcs.R")
+>plot_tree("TreeMix")
+```
+
+It's also useful to have a measure of how well this tree fits the data. To plot the residual fit of the model, while still in R (and having loaded the functions in `plotting_funcs.R`, run:
+
+```
+>plot_resid("TreeMix", "pop_order")
+```
 \noindent Each entry in the displayed matrix shows how well the model accounts for the observed relationship between the pair of populations. Questions:
 \begin{enumerate}
 \item How do you interpret the tree and residual plot?
