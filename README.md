@@ -18,6 +18,7 @@ We assume you are comfortable working from the command line and have installed:
 * [STRUCTURE](http://pritchardlab.stanford.edu/structure.html) (we are going to assume you have the GUI)
  
 # Example 1
+
 There are two directories in this tutorial, `example1/` and `example2/`. We're going to start with example 1
 ```
 cd example1/
@@ -75,15 +76,17 @@ Now the output is of the form:
 [tested tree][f_3 statistic][standard error][Z-score]
 ```
 
-In the tested tree, the format is A;B,C, such that the computed *f_3* statistic is (A-B)(A-C). Recall that for *f_3* statistics, only significantly *negative* statistics are informative. Questions:
+In the tested tree, the format is A;B,C, such that the computed *f_3* statistic is (A-B)(A-C). Recall that for *f_3* statistics, only significantly *negative* statistics are informative. 
 
+Questions:
 
 * Are there any significantly negative *f_3* statistics in these data? 
 
 * How do you interpret the combination of these *f_3* and *f_4* statistics?
 
 
-#Example 2
+# Example 2
+
 Now let's go to the second example:
 
 ```
@@ -100,7 +103,8 @@ The file format is simple an ordered list of the counts of the alleles of SNPs i
  
 We now want to understand the relationships between the five populations in these data. The goal here is to see how different approaches to looking at the data tell us similar or different things about history.
 
-###STRUCTURE
+### STRUCTURE
+
 In the file `example2.struct_in` is the input file for the program `STRUCTURE`. It contains 75 individuals from the five populations genotyped at 3,000 SNPs. In this file, populations have numbers instead of names: CEU is population 1, CHB is population 2, GIH is population 3, MKK is population 4, and YRI is population 5. Start the STRUCTURE GUI (how to do this will depend on your system).
 
 In the File menu, select "New project" and follow the instructions. Most of the steps involve telling the program the format of the file: check the boxes to tell the program that there is a "row of marker names" and "map distances between loci", and that the file is in the "special format". Then check the boxes for "Individual ID for each individual" and "Putative population origin for each individual". The data is not phased.
@@ -113,7 +117,8 @@ After creating the parameter set, return to the "Parameter set" menu and select 
 * Run STRUCTURE with different settings for the number of populations, how do the results change?
 * How do you interpret these results?
 
-###PCA
+### PCA
+
 In the files `example2.eigenstratgene`, `example2.snp`, and `example2.ind` are 100,000 SNPs genotypes from 150 individuals from the five populations. A quick bioinformatics question:
 
 
@@ -151,7 +156,8 @@ Questions:
 * Produce a PCA plot with all five populations plotted in different colors. Do this for PC1 versus PC2, as well as PC2 versus PC3. 
 * How do you interpret this plot?
 
-###TreeMix
+### TreeMix
+
 TreeMix is a program for building trees and graphs of populations. The input file is in `example2.treemix.gz`. Again examine the input file:
 ```
 zcat example2.treemix.gz | head
@@ -191,7 +197,8 @@ Questions:
 
 * Run TreeMix with different parameter settings (of `-root`, `-k`, and `-m`. How robust are your results to these choices?
 
-###Three- and four-population tests
+### Three- and four-population tests
+
 As in the first example, you can also calculate *f_3* and *f_4* statistics on the file in TreeMix format. Questions:
 
 
