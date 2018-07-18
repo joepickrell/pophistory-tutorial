@@ -1,7 +1,7 @@
-#Tutorial on inferring history from genetics
+# Tutorial on inferring history from genetics
 #### Joe Pickrell
 
-#Introduction
+# Introduction
 
 The goal of this tutorial is to expose you to some of the important tools for learning about history from genetics. The standard setup for someone interested in these problems is to genotype thousands or millions of SNPs in a population of interest and then ask: what is the history of this population? The tools you will run in this tutorial provide summaries of the data that are informative about this question. However, be aware that there is no "black box" solution--all methods can be misleading, and the main difficulty is not running software, but instead interpreting the results.
 
